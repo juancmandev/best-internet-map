@@ -70,10 +70,17 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='mt-2 space-y-4'>
         <section className='flex flex-col gap-2'>
           <Label>Rating</Label>
-          <Rating onClick={handleRating} SVGclassName='inline-block' />
+          <div className='w-max [&span]:w-max'>
+            <Rating
+              allowFraction
+              initialValue={rating}
+              onClick={handleRating}
+              SVGclassName='inline-block'
+            />
+          </div>
         </section>
         <FormField
           control={form.control}
