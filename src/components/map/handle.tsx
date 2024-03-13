@@ -22,7 +22,7 @@ function MapWrapper() {
         () => {
           setLoading(false);
           setCoords(null);
-        }
+        },
       );
     } else {
       setLoading(false);

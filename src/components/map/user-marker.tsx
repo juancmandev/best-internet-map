@@ -22,7 +22,6 @@ export default function MapUserMarker() {
       draggable
       icon={icon}
       ref={markerRef}
-      position={[coords!.lat, coords!.lng]}
       eventHandlers={{
         dragend: () => {
           if (!markerRef.current) return;
@@ -30,6 +29,7 @@ export default function MapUserMarker() {
           setCoords(markerRef.current.getLatLng());
         },
       }}
+      position={[coords!.lat, coords!.lng]}
     >
       <MarkerPopup />
     </Marker>

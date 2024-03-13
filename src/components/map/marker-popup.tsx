@@ -11,16 +11,11 @@ export default function MarkerPopup() {
 
   return (
     <Popup>
-      <h3 className='text-lg text-center mb-2'>You're here!</h3>
+      <h3 className='text-lg text-center mb-2'>{`You're here!`}</h3>
       <Button onClick={() => setOpen((prev) => !prev)}>
         Review this point
       </Button>
-      <DialogOrDrawer
-        open={open}
-        setOpen={setOpen}
-        title='Review this point'
-        description='Say what do you think about your Internet Service Provider.'
-      >
+      <DialogOrDrawer open={open} setOpen={setOpen} title='Review this point'>
         <ReviewForm />
       </DialogOrDrawer>
     </Popup>

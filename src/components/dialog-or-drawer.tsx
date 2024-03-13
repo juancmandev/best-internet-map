@@ -25,7 +25,7 @@ type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
-  description: string;
+  description?: string;
   children: React.ReactNode;
 };
 
@@ -43,7 +43,9 @@ export default function DialogOrDrawer(props: Props) {
           <main>{props.children}</main>
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant='outline'>Cancel</Button>
+              <Button className='w-full' variant='outline'>
+                Cancel
+              </Button>
             </DialogClose>
           </DialogFooter>
         </DialogContent>
@@ -57,10 +59,12 @@ export default function DialogOrDrawer(props: Props) {
           <DrawerTitle>{props.title}</DrawerTitle>
           <DrawerDescription>{props.description}</DrawerDescription>
         </DrawerHeader>
-        <main className='p-4'>{props.children}</main>
-        <DrawerFooter className='pt-2'>
+        <main className='p-4 pb-0'>{props.children}</main>
+        <DrawerFooter>
           <DrawerClose asChild>
-            <Button variant='outline'>Cancel</Button>
+            <Button className='w-full' variant='outline'>
+              Cancel
+            </Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
