@@ -1,3 +1,5 @@
+'use client';
+
 import { useMap } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
 import { ZoomIn, ZoomOut } from 'lucide-react';

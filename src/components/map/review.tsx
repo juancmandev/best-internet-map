@@ -1,3 +1,5 @@
+'use client';
+
 import { Icon } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { Rating } from 'react-simple-star-rating';

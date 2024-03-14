@@ -1,3 +1,5 @@
+'use client';
+
 import { MapContainer } from 'react-leaflet';
 import MapUserMarker from './user-marker';
 import MapTileLayer from './tile-layer';
