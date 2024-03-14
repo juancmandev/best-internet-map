@@ -150,7 +150,7 @@ export default function ReviewForm(props: Props) {
                           {isp.map((item: TIsp) => (
                             <CommandItem
                               key={item.id.toString()}
-                              value={item.id.toString()}
+                              value={item.name}
                               onSelect={() => {
                                 form.setValue('isp', item);
                                 setOpen(false);
