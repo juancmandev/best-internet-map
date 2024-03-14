@@ -5,7 +5,7 @@ import MapShow from './show';
 import { MapContext, MapProvider } from '@/contexts/map';
 
 function MapWrapper() {
-  const { coords, setCoords } = useContext(MapContext)!;
+  const { coords, setCoords, setInitialPosition } = useContext(MapContext)!;
 
   const [loading, setLoading] = useState(true);
 
@@ -14,6 +14,10 @@ function MapWrapper() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setCoords({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+          setInitialPosition({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });

@@ -59,21 +59,19 @@ export default function DialogOrDrawer(props: Props) {
 
   return (
     <Drawer open={props.open} onOpenChange={props.setOpen}>
-      <DrawerContent>
-        <ScrollArea className='max-h-[50dvh] px-4 overflow-y-auto'>
-          <DrawerHeader className='text-left'>
-            <DrawerTitle>{props.title}</DrawerTitle>
-            <DrawerDescription>{props.description}</DrawerDescription>
-          </DrawerHeader>
-          <main className='px-4'>{props.children}</main>
-          <DrawerFooter>
-            <DrawerClose asChild>
-              <Button className='w-full' variant='outline'>
-                Cancel
-              </Button>
-            </DrawerClose>
-          </DrawerFooter>
-        </ScrollArea>
+      <DrawerContent className='px-2'>
+        <DrawerHeader className='text-left'>
+          <DrawerTitle>{props.title}</DrawerTitle>
+          <DrawerDescription>{props.description}</DrawerDescription>
+        </DrawerHeader>
+        <main className='px-4'>{props.children}</main>
+        <DrawerFooter>
+          <DrawerClose asChild>
+            <Button className='w-full' variant='outline'>
+              Cancel
+            </Button>
+          </DrawerClose>
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
