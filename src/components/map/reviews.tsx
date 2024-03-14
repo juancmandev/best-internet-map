@@ -28,8 +28,8 @@ export default function MapReviews() {
   async function fetchReviews() {
     const { data, error } = await supabase.rpc('reviews_in_view', {
       min_lat: map.getBounds().getSouthWest().lat,
-      min_lng: map.getBounds().getNorthEast().lat,
-      max_lat: map.getBounds().getSouthWest().lng,
+      min_lng: map.getBounds().getSouthWest().lng,
+      max_lat: map.getBounds().getNorthEast().lat,
       max_lng: map.getBounds().getNorthEast().lng,
     });
 
