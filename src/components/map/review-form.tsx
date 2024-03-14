@@ -57,7 +57,7 @@ type TIsp = {
 export default function ReviewForm(props: Props) {
   const supabase = createBrowserClient();
 
-  const { coords } = useContext(MapContext)!;
+  const { coords, setReloadReviews } = useContext(MapContext)!;
 
   const [isp, setIsp] = useState<TIsp[] | null>(null);
   const [open, setOpen] = useState(false);
@@ -90,12 +90,12 @@ export default function ReviewForm(props: Props) {
     });
 
     if (res.error) {
-      console.error(res.statusText);
-
       return;
     }
 
-    toast('Review created!');
+    toast('Review created! Move your marker');
+
+    setReloadReviews((prev) => !prev);
 
     props.setOpen((prev) => !prev);
   }
