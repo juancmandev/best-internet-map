@@ -16,7 +16,7 @@ export default function MarkerPopup() {
         Review this point
       </Button>
       <DialogOrDrawer open={open} setOpen={setOpen} title='Review this point'>
-        <ReviewForm />
+        <ReviewForm setOpen={setOpen} />
       </DialogOrDrawer>
     </Popup>
   );
