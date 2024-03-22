@@ -67,7 +67,7 @@ export default function MapControls() {
                 />
                 ) para abrir un popup
               </li>
-              <li>Da click o toca "Reseñar este punto"</li>
+              <li>{`Da click o toca "Reseñar este punto"`}</li>
             </ul>
           </section>
           <section>
