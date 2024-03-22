@@ -10,14 +10,14 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-} from '@/components/ui/drawer';
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import useMediaQuery from '@/hooks/use-media-query';
@@ -30,7 +30,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function DialogOrDrawer(props: Props) {
+export default function Modal(props: Props) {
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
   if (isDesktop)
@@ -47,7 +47,7 @@ export default function DialogOrDrawer(props: Props) {
               <DialogFooter className='mt-2'>
                 <DialogClose asChild>
                   <Button className='w-full' variant='outline'>
-                    Cancel
+                    Cancelar
                   </Button>
                 </DialogClose>
               </DialogFooter>
@@ -58,21 +58,21 @@ export default function DialogOrDrawer(props: Props) {
     );
 
   return (
-    <Drawer open={props.open} onOpenChange={props.setOpen}>
-      <DrawerContent className='px-2'>
-        <DrawerHeader className='text-left'>
-          <DrawerTitle>{props.title}</DrawerTitle>
-          <DrawerDescription>{props.description}</DrawerDescription>
-        </DrawerHeader>
-        <main className='px-4'>{props.children}</main>
-        <DrawerFooter>
-          <DrawerClose asChild>
+    <Sheet open={props.open} onOpenChange={props.setOpen}>
+      <SheetContent side='top' className='px-4'>
+        <SheetHeader className='text-left'>
+          <SheetTitle>{props.title}</SheetTitle>
+          <SheetDescription>{props.description}</SheetDescription>
+        </SheetHeader>
+        <main>{props.children}</main>
+        <SheetFooter className='mt-2'>
+          <SheetClose asChild>
             <Button className='w-full' variant='outline'>
-              Cancel
+              Cancelar
             </Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
+          </SheetClose>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
   );
 }

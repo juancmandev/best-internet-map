@@ -13,8 +13,8 @@ export default function MapUserMarker() {
 
   const icon = new L.Icon({
     iconUrl: '/location-pin.svg',
-    iconSize: [32, 32],
-    className: 'cursor-grab !z-20',
+    iconSize: [64, 64],
+    className: 'cursor-grab !z-10',
   });
 
   return (

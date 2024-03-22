@@ -33,6 +33,8 @@ export default function MapReviews() {
       max_lng: map.getBounds().getNorthEast().lng,
     });
 
+    console.log(data);
+
     if (!error) {
       setReviews(data);
     }
@@ -44,7 +46,11 @@ export default function MapReviews() {
 
   useMapEvents({
     moveend() {
-      fetchReviews();
+      if (map.getZoom() > 12) {
+        fetchReviews();
+      } else {
+        setReviews([]);
+      }
     },
   });
 

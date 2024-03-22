@@ -38,14 +38,16 @@ function MapWrapper() {
     <>
       {loading && (
         <div className='w-full h-screen grid items-center bg-slate-200 animate-pulse'>
-          <h1 className='text-center text-xl font-semibold'>Loading map...</h1>
+          <h1 className='text-center text-xl font-semibold'>
+            Cargando mapa...
+          </h1>
         </div>
       )}
       {!loading && coords && <MapShow />}
       {!loading && !coords && (
         <div className='w-full h-screen grid items-center bg-slate-200'>
           <h1 className='text-center text-xl font-semibold'>
-            Can not access to location
+            No es posible acceder a la ubicación
           </h1>
         </div>
       )}

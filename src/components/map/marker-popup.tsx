@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Popup } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
-import DialogOrDrawer from '@/components/dialog-or-drawer';
+import Modal from '@/components/modal';
 import ReviewForm from './review-form';
 
 export default function MarkerPopup() {
@@ -11,13 +11,14 @@ export default function MarkerPopup() {
 
   return (
     <Popup>
-      <h3 className='text-lg text-center mb-2'>{`You're here!`}</h3>
-      <Button onClick={() => setOpen((prev) => !prev)}>
-        Review this point
+      <h3 className='text-lg text-center'>¡Estás aquí!</h3>
+      <p className='!m-0 !mb-2'>Puedes mover este pin arrastrándolo</p>
+      <Button className='w-full' onClick={() => setOpen((prev) => !prev)}>
+        Reseñar este punto
       </Button>
-      <DialogOrDrawer open={open} setOpen={setOpen} title='Review this point'>
+      <Modal open={open} setOpen={setOpen} title='Reseñar este punto'>
         <ReviewForm setOpen={setOpen} />
-      </DialogOrDrawer>
+      </Modal>
     </Popup>
   );
 }

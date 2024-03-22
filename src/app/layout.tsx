@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Best Internet',
-  description: 'Check the best option for your ISP!',
+  description: 'Revisa la mejor opción de Internet en tu zona.',
 };
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang='en'>
+    <html lang='es'>
       <body>
         <main>{children}</main>
         <Toaster />

@@ -102,9 +102,9 @@ export default function ReviewForm(props: Props) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='mt-2 space-y-4'>
-        <section className='flex flex-col gap-2'>
-          <Label>Rating</Label>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2.5'>
+        <section className='flex flex-col gap-1'>
+          <Label>Calificación</Label>
           <div className='w-max [&span]:w-max'>
             <Rating
               initialValue={rating}
@@ -137,14 +137,14 @@ export default function ReviewForm(props: Props) {
                       {field.value &&
                       isp.find((item: TIsp) => item.id === field.value.id)
                         ? field.value.name
-                        : 'Choose ISP...'}
+                        : 'Escoge una ISP...'}
                       <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className='popover-content'>
                     <Command>
-                      <CommandInput placeholder='Search ISP...' />
-                      <CommandEmpty>No ISP found.</CommandEmpty>
+                      <CommandInput placeholder='Buscar ISP...' />
+                      <CommandEmpty>Sin resultados.</CommandEmpty>
                       <CommandList>
                         <CommandGroup>
                           {isp.map((item: TIsp) => (
@@ -187,7 +187,7 @@ export default function ReviewForm(props: Props) {
                 <FormControl>
                   <Textarea
                     className='resize-none'
-                    placeholder='Tell more about this ISP'
+                    placeholder='Qué te parece el servicio, precio, velocidad, etc.'
                     {...field}
                   />
                 </FormControl>
@@ -197,7 +197,7 @@ export default function ReviewForm(props: Props) {
           )}
         />
         <Button className='w-full' type='submit'>
-          Submit
+          Enviar
         </Button>
       </form>
     </Form>

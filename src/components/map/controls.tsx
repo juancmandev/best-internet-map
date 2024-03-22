@@ -3,10 +3,10 @@
 import { useContext, useState } from 'react';
 import { useMap } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
-import { ZoomIn, ZoomOut, LocateFixed, CircleHelp } from 'lucide-react';
+import { ZoomIn, ZoomOut, LocateFixed, CircleHelp, Github } from 'lucide-react';
 import Control from 'react-leaflet-custom-control';
 import { MapContext } from '@/contexts/map';
-import DialogOrDrawer from '@/components/dialog-or-drawer';
+import Modal from '@/components/modal';
 
 export default function MapControls() {
   const map = useMap();
@@ -53,48 +53,75 @@ export default function MapControls() {
           <CircleHelp className='w-6' />
         </Button>
       </Control>
-      <DialogOrDrawer title='Help' open={open} setOpen={setOpen}>
-        <h3 className='mb-1 font-lg font-semibold'>
-          How do I create a review?
-        </h3>
-        <ul className='list-disc pl-4'>
-          <li>
-            Click/touch the red pin (
-            <img
-              className='inline w-6'
-              src='/location-pin.svg'
-              alt='Location pin'
-            />
-            ) to open a popup
-          </li>
-          <li>{`Click or touch "Review this point"`}</li>
-        </ul>
-        <h3 className='mt-2 mb-1 font-lg font-semibold'>I lost my marker</h3>
-        <ul className='list-disc pl-4'>
-          <li>
-            Click or touch the (<LocateFixed className='w-5 inline' />) button
-            in the lower left corner to go to your initial position
-          </li>
-        </ul>
-        <h3 className='mt-2 mb-1 font-lg font-semibold'>
-          How do I check a review?
-        </h3>
-        <ul className='list-disc pl-4'>
-          <li>
-            Click or touch any ({' '}
-            <img
-              className='inline w-6'
-              src='/review-pin.svg'
-              alt='Review pin'
-            />
-            ) to see a popup with the review
-          </li>
-        </ul>
-        <p className='mt-4'>
-          This app do not save your location, only saves the locations of the
-          reviews.
-        </p>
-      </DialogOrDrawer>
+      <Modal title='Ayuda' open={open} setOpen={setOpen}>
+        <div className='space-y-2'>
+          <section>
+            <h3 className='font-lg font-semibold'>¿Cómo creo una reseña?</h3>
+            <ul className='list-disc pl-4'>
+              <li>
+                Da click o toca el pin rojo (
+                <img
+                  className='inline w-6'
+                  src='/location-pin.svg'
+                  alt='Location pin'
+                />
+                ) para abrir un popup
+              </li>
+              <li>Da click o toca "Reseñar este punto"</li>
+            </ul>
+          </section>
+          <section>
+            <h3 className='font-lg font-semibold'>Perdí mi pin</h3>
+            <ul className='list-disc pl-4'>
+              <li>
+                Da click o toca el botón (
+                <LocateFixed className='w-6 inline' />) en la esquina inferior
+                izquierda para ir a tu posición inicial.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3 className='font-lg font-semibold'>¿Cómo reviso una reseña?</h3>
+            <ul className='list-disc pl-4'>
+              <li>
+                Da click o toca cualquier (
+                <img
+                  className='inline w-6'
+                  src='/review-pin.svg'
+                  alt='Review pin'
+                />
+                ) para ver un popup con la reseña
+              </li>
+            </ul>
+          </section>
+          <section>
+            <p>
+              De momento solo se muestran <strong>ISP</strong> (Internet Service
+              Provider) de México.
+            </p>
+            <p>
+              Esta app no guarda tu ubicación, solo guarda la ubicacón del pin
+              rojo cuando dejas una reseña.
+            </p>
+          </section>
+          <section>
+            <Button
+              size={null}
+              variant='link'
+              asChild
+              className='flex items-center w-max gap-1'
+            >
+              <a
+                target='_blank'
+                href='https://github.com/juancmandev/best-internet-map'
+              >
+                <Github className='w-5' />
+                GitHub
+              </a>
+            </Button>
+          </section>
+        </div>
+      </Modal>
     </>
   );
 }

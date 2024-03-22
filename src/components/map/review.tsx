@@ -18,7 +18,7 @@ export default function MapReview(props: Props) {
   const icon = new Icon({
     iconUrl: '/review-pin.svg',
     iconSize: [32, 32],
-    className: '!z-10',
+    className: '!z-20',
   });
 
   return (
@@ -32,7 +32,7 @@ export default function MapReview(props: Props) {
             SVGclassName='inline-block'
           />
         </div>
-        <p className='text-base'>{props.comments}</p>
+        <p className='text-base !m-0 !mt-2'>{props.comments}</p>
       </Popup>
     </Marker>
   );
